@@ -1,0 +1,7 @@
+bundles/*/local/
+venv/
+out/*
+!out/.gitkeep
+*.pyc
+__pycache__/
+logs/eventgen-*

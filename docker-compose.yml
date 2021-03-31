@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  eventgen-s4r:
+    depends_on:
+      - universalforwarder
+    build: .
+    image: eventgen-s4r:latest
+    command: generate /bundle/
+    volumes:
+      - eventgen-volume:/out
+      - type: bind
+        source: ${BUNDLE_DIR}
+        target: /bundle
+  universalforwarder:
+    container_name: uf
+    image: splunk/universalforwarder:latest
+    ports:
+      - 9998:9998
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_USER=root
+      - SPLUNK_PASSWORD=4p3r7ur35c13nc3
+    volumes:
+      - eventgen-volume:/in:ro
+
+volumes:
+  eventgen-volume:
