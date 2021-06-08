@@ -14,7 +14,7 @@ First, the Docker container image needs to be created from the source in this re
 
 1. Clone this repository
 ```
-git clone https://gitlab.com/splunk-fdse/other/splunk4rookies-eventgen
+git clone https://github.com/mark-sivill-splunk/splunk4rookies-eventgen
 ```
 
 2. Change into the directory and build the container image
